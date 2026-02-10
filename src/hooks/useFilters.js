@@ -8,7 +8,7 @@ import { isDateInRange } from '../utils/dateUtils';
  */
 export function useFilters(transactions) {
   const [filters, setFilters] = useState({
-    categoryId: null,
+    category: null,
     type: null,
     startDate: null,
     endDate: null,
@@ -28,7 +28,7 @@ export function useFilters(transactions) {
    */
   const clearFilters = () => {
     setFilters({
-      categoryId: null,
+      category: null,
       type: null,
       startDate: null,
       endDate: null,
@@ -41,7 +41,7 @@ export function useFilters(transactions) {
    */
   const hasActiveFilters = useMemo(() => {
     return (
-      filters.categoryId !== null ||
+      filters.category !== null ||
       filters.type !== null ||
       filters.startDate !== null ||
       filters.endDate !== null ||
@@ -55,7 +55,7 @@ export function useFilters(transactions) {
   const filteredTransactions = useMemo(() => {
     return transactions.filter((transaction) => {
       // Filter by category
-      if (filters.categoryId && transaction.category !== filters.categoryId) {
+      if (filters.category && transaction.category !== filters.category) {
         return false;
       }
 

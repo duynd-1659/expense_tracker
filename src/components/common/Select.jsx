@@ -11,6 +11,8 @@ export function Select({
   className = '',
   required = false,
   showIcons = false,
+  value,
+  onChange,
   ...props
 }) {
   const selectClasses = `
@@ -33,6 +35,8 @@ export function Select({
         id={name}
         className={selectClasses}
         {...(register ? register(name) : { name })}
+        value={value}
+        onChange={onChange}
         {...props}
       >
         <option value="">-- Select --</option>

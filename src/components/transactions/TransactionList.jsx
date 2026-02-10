@@ -62,7 +62,7 @@ TransactionList.propTypes = {
       id: PropTypes.string.isRequired,
       amount: PropTypes.number.isRequired,
       type: PropTypes.string.isRequired,
-      categoryId: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       description: PropTypes.string,
     })

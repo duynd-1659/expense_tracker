@@ -13,8 +13,9 @@ import { Button } from '../common/Button';
  * @param {Function} props.onDelete - Callback when delete button clicked
  */
 export const TransactionItem = ({ transaction, onEdit, onDelete }) => {
-  const { id, amount, type, categoryId, date, description } = transaction;
+  const { id, amount, type, category: categoryId, date, description } = transaction;
   const category = getCategoryById(categoryId);
+  console.log(transaction);
 
   // Color classes based on transaction type
   const amountColorClass = type === TRANSACTION_TYPES.INCOME ? 'text-green-600' : 'text-red-600';
@@ -83,7 +84,7 @@ TransactionItem.propTypes = {
     id: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
     type: PropTypes.oneOf([TRANSACTION_TYPES.INCOME, TRANSACTION_TYPES.EXPENSE]).isRequired,
-    categoryId: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     description: PropTypes.string,
   }).isRequired,
